@@ -31,7 +31,27 @@ img {
 a {
 	text-decoration: none;
 }
+.brand h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	color: white;
+}
+.brand h1 span {
+	color: crimson;
+}
 
+/* Header section */
+#header {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: auto;
+}
+#header .header {
+	min-height: 8vh;
+}
 .cta {
 	display: inline-block;
 	padding: 10px 30px;
@@ -51,7 +71,7 @@ a {
 }
 /* Hero Section */
 #hero {
-	background-image: url("https://wallpaperaccess.com/full/303549.jpg");
+	background-image: url("https://static.vecteezy.com/system/resources/previews/002/202/514/original/wood-background-in-realistic-design-style-free-vector.jpg");
 	background-size: cover;
 	background-position: top center;
     position: relative;
@@ -151,6 +171,15 @@ a {
 </style>
 </head>
 <body>
+	<section id="header">
+		<div class="header container">
+			<div class="brand">
+			  <a href="#hero">
+				<h1><span>W</span>elcome<span>  R</span>espected  <span>U</span>sers</h1>
+			  </a>
+			</div>
+		  </div>
+	</section>
   <!-- Hero Section  -->
   <section id="hero">
     <div class="hero container">
@@ -158,7 +187,7 @@ a {
         <h1>Project<span></span></h1>
         <h1>Made By<span></span></h1>
         <h1>Huzaifa Umer Usaid<span></span></h1>
-        <a href="/register" type="button" class="cta">Proceed</a>
+        <a href="/login" type="button" class="cta">Proceed</a>
       </div>
     </div>
   </section>

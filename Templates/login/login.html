@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,8 @@ body{
   font-family: 'Mukta', sans-serif;
 	height:100vh;
 	min-height:550px;
-	background-image: url(https://static.vecteezy.com/system/resources/previews/002/202/514/original/wood-background-in-realistic-design-style-free-vector.jpg);
-	background-repeat: no-repeat;
+  background-image: linear-gradient(30deg, rgb(40, 27, 80), orange);
+      background-repeat: no-repeat;
 	background-size:cover;
 	background-position:center;
 	position:relative;
@@ -35,10 +36,10 @@ a{
 	right:0;left:0;
     margin:auto;
     height:400px;
-    background-color:saddlebrown;
+    background-image: linear-gradient(144deg,red,yellow,orange,yellow,brown);
 }
 .white-panel{
-    background-color: rgba(255,255, 255, 1);
+    background-image: linear-gradient(144deg,black,grey);
     height:500px;
     position:absolute;
     top:-50px;
@@ -57,7 +58,7 @@ a{
 }
 .login-reg-panel #label-login, 
 .login-reg-panel #label-register{
-    border:1px solid #9E9E9E;
+    border:1px solid brown;
     padding:5px 5px;
     width:150px;
     display:block;
@@ -130,7 +131,7 @@ a{
     font-family: inherit;
     font-weight: 500;
     line-height: 1.2;
-    color: burlywood;
+    color: brown;
 }
 
 .register-show input[type="text"], .register-show input[type="password"]{
@@ -190,20 +191,26 @@ a{
 		</div>
 							
 		<div class="white-panel">
+            <form action="/login" method="POST">
 			<div class="login-show">
 				<h2>LOGIN</h2>
-				<input type="text" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<input type="button" value="Login">
-				<a href="">Forgot password?</a>
+				<input id="Email" name="e1" input type="text"  placeholder="Email" class="validate" required="">
+				<input id="Password" name="p1" input type="password"  placeholder="Password" class="validate" minlength="5" required="">
+				<input id="b" class="btn btn-primary " type="submit" value="Login" >
 			</div>
+            </form>
+
+            <form action="/signup" method="post">
 			<div class="register-show">
 				<h2>REGISTER</h2>
-				<input type="text" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<input type="password" placeholder="Confirm Password">
-				<input type="button" value="Register">
+				<input id="Email" name="email" type="text" placeholder="Email">
+                <!-- <label for="pass1" data-error="Please enter a name of length minum 5 characters" data-success="Perfect!"><span class="red-text"></span></label> -->
+			    <input id="pass1" name="password1" type="password" placeholder="Password" class="validate" minlength="5" required="">
+				<!-- <label for="pass2" data-error="Please enter the same password again" data-success="Perfect!"><span class="red-text"></span></label> -->
+                <input id="pass2" name="confirm" type="password" placeholder="Confirm Password" class="validate" required="">
+				<input class="btn btn-primary " type="submit" value="Register">
 			</div>
+            </form>
 		</div>
 	</div>
     
@@ -233,6 +240,19 @@ $('.login-reg-panel input[type="radio"]').on('change', function() {
         $('.login-show').addClass('show-log-panel');
         $('.register-show').removeClass('show-log-panel');
     }
+
+    var password = document.getElementById('pass1'),
+    confirm_password = document.getElementById('pass2');
+
+    function validatePassword() {
+        if (password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    password.oninput = validatePassword;
+    confirm_password.oninput = validatePassword;
 });
     </script>
 </body>
